@@ -3,63 +3,117 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
-    // View list of all items with stock levels
+    public function __construct()
+    {
+        $this->middleware(['auth', 'admin']);
+    }
+
     public function index()
     {
-        $products = Product::all();
-        return view('admin.products.index', compact('products'));
+        $categories = Category::all();
+        $products = Product::with('category')
+            ->withTrashed()
+            ->paginate(15);
+
+        return view('admin.products.index', compact('products', 'categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('admin.products.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0.01',
+            'stock' => 'required|integer|min:0',
+            'sku' => 'required|string|unique:products',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $images = [];
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('products', 'public');
+                $images[] = $path;
+            }
+        }
+
+        Product::create([
+            ...$validated,
+            'slug' => Str::slug($validated['name']),
+            'images' => $images,
+        ]);
+
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product created successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(Product $product)
     {
-        //
+        $categories = Category::all();
+
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0.01',
+            'stock' => 'required|integer|min:0',
+            'sku' => 'required|string|unique:products,sku,' . $product->id,
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $images = $product->images ?? [];
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('products', 'public');
+                $images[] = $path;
+            }
+        }
+
+        $product->update([
+            ...$validated,
+            'slug' => Str::slug($validated['name']),
+            'images' => $images,
+        ]);
+
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product updated successfully!');
     }
 
-    // Update stock counts for items
-    public function update(Request $request, string $id)
+    public function destroy(Product $product)
     {
-        $product = Product::find($id);
-        $product->update($request->only('stock_quantity', 'price'));
-        return redirect()->back()->with('success', 'Stock Updated!');
+        $product->delete();
+
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product deleted successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function restore($id)
     {
-        //
+        $product = Product::withTrashed()->findOrFail($id);
+        $product->restore();
+
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product restored successfully!');
     }
 }
