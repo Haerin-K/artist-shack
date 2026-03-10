@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 40px; }
+        
+        .product-carousel-section {
+            padding: 60px 0;
+            background-color: #fff;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .carousel-content-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .carousel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .expand-btn {
+            background-color: #2a2a2a;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .expand-btn:hover {
+            background-color: #000;
+        }
+
+        .minimize-btn {
+            background-color: #2a2a2a;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .minimize-btn:hover {
+            background-color: #000;
+        }
+
+        .carousel-wrapper {
+            display: block;
+        }
+
+        .carousel-wrapper.hidden {
+            display: none;
+        }
+
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .carousel-nav-btn {
+            background-color: #f8f8f8;
+            border: 1px solid #eee;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: #2a2a2a;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 20;
+        }
+
+        .carousel-nav-btn:hover {
+            background-color: #2a2a2a;
+            color: #fff;
+        }
+
+        .carousel-track-wrapper {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-item {
+            flex: 0 0 calc(25% - 15px);
+            min-width: 0;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 15px;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-card:hover {
+            border-color: #ddd;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+        }
+
+        .product-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2a2a2a;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2a2a2a;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ddd;
+            border: none;
+            cursor: pointer;
+        }
+
+        .indicator-dot.active {
+            background-color: #2a2a2a;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .grid-wrapper {
+            display: none;
+        }
+
+        .grid-wrapper.active {
+            display: block;
+        }
+
+        .grid-header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 1200px) {
+            .carousel-item { flex: 0 0 calc(33.333% - 13px); }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item { flex: 0 0 calc(50% - 10px); }
+            .carousel-header { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-item { flex: 0 0 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Carousel Test - View All & Minimize</h1>
+
+    <section class="product-carousel-section" id="carousel-section-test">
+        <div class="carousel-content-wrapper">
+            <div class="carousel-header">
+                <div class="section-title">
+                    <h2>Test Products</h2>
+                    <span>Click View All to expand, then Minimize to collapse</span>
+                </div>
+                <button type="button" class="expand-btn" title="View all items">
+                    <i class="fa fa-th"></i> View All
+                </button>
+            </div>
+
+            <!-- CAROUSEL VIEW -->
+            <div class="carousel-wrapper">
+                <div class="carousel-container">
+                    <button type="button" class="carousel-nav-btn carousel-prev" title="Previous">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carousel-track-wrapper">
+                        <div class="carousel-track" id="carousel-test">
+                            <div class="carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image">Product 1</div>
+                                    <div class="product-name">Test Product 1</div>
+                                    <div class="product-price">$25.00</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image">Product 2</div>
+                                    <div class="product-name">Test Product 2</div>
+                                    <div class="product-price">$25.00</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image">Product 3</div>
+                                    <div class="product-name">Test Product 3</div>
+                                    <div class="product-price">$25.00</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image">Product 4</div>
+                                    <div class="product-name">Test Product 4</div>
+                                    <div class="product-price">$25.00</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image">Product 5</div>
+                                    <div class="product-name">Test Product 5</div>
+                                    <div class="product-price">$25.00</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image">Product 6</div>
+                                    <div class="product-name">Test Product 6</div>
+                                    <div class="product-price">$25.00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="carousel-nav-btn carousel-next" title="Next">
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="carousel-indicators" id="indicators-test"></div>
+            </div>
+
+            <!-- GRID VIEW -->
+            <div class="grid-wrapper">
+                <div class="grid-header">
+                    <button type="button" class="minimize-btn" title="Back to carousel">
+                        <i class="fa fa-compress"></i> Minimize
+                    </button>
+                </div>
+                <div class="products-grid">
+                    <div class="grid-product-card"><strong>Product 1</strong><p>$25.00</p></div>
+                    <div class="grid-product-card"><strong>Product 2</strong><p>$25.00</p></div>
+                    <div class="grid-product-card"><strong>Product 3</strong><p>$25.00</p></div>
+                    <div class="grid-product-card"><strong>Product 4</strong><p>$25.00</p></div>
+                    <div class="grid-product-card"><strong>Product 5</strong><p>$25.00</p></div>
+                    <div class="grid-product-card"><strong>Product 6</strong><p>$25.00</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        class ProductCarousel {
+            constructor(carouselId) {
+                this.carouselId = carouselId;
+                this.carouselElement = document.querySelector(carouselId);
+                if (!this.carouselElement) return;
+
+                this.section = this.carouselElement.closest('.product-carousel-section');
+                this.trackElement = this.section.querySelector('.carousel-track') || this.carouselElement;
+                this.itemsPerView = this.getItemsPerView();
+                this.currentIndex = 0;
+                this.totalItems = this.carouselElement.querySelectorAll('.carousel-item').length;
+                this.isAnimating = false;
+
+                this.init();
+            }
+
+            init() {
+                if (this.totalItems === 0) return;
+                this.setupEventListeners();
+                this.createIndicators();
+                this.updateCarousel();
+            }
+
+            getItemsPerView() {
+                const width = window.innerWidth;
+                if (width < 576) return 1;
+                if (width < 768) return 2;
+                if (width < 1200) return 3;
+                return 4;
+            }
+
+            setupEventListeners() {
+                // Previous button
+                const prevBtn = this.section.querySelector('.carousel-prev');
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        this.previous();
+                    });
+                }
+
+                // Next button
+                const nextBtn = this.section.querySelector('.carousel-next');
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        this.next();
+                    });
+                }
+
+                // Expand button
+                const expandBtn = this.section.querySelector('.expand-btn');
+                if (expandBtn) {
+                    expandBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Expand clicked');
+                        this.expandGrid();
+                    });
+                }
+
+                // Minimize button
+                const minimizeBtn = this.section.querySelector('.minimize-btn');
+                if (minimizeBtn) {
+                    minimizeBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Minimize clicked');
+                        this.collapseGrid();
+                    });
+                }
+            }
+
+            previous() {
+                if (this.isAnimating) return;
+                this.isAnimating = true;
+                this.currentIndex--;
+                if (this.currentIndex < 0) {
+                    this.currentIndex = this.totalItems - this.itemsPerView;
+                }
+                this.updateCarousel();
+                setTimeout(() => { this.isAnimating = false; }, 400);
+            }
+
+            next() {
+                if (this.isAnimating) return;
+                this.isAnimating = true;
+                this.currentIndex++;
+                if (this.currentIndex > this.totalItems - this.itemsPerView) {
+                    this.currentIndex = 0;
+                }
+                this.updateCarousel();
+                setTimeout(() => { this.isAnimating = false; }, 400);
+            }
+
+            updateCarousel() {
+                const itemWidth = 100 / this.itemsPerView;
+                const offset = this.currentIndex * itemWidth;
+                if (this.trackElement) {
+                    this.trackElement.style.transform = `translateX(-${offset}%)`;
+                }
+
+                const dots = this.section.querySelectorAll('.indicator-dot');
+                dots.forEach(dot => dot.classList.remove('active'));
+                const activeIndex = Math.floor(this.currentIndex / this.itemsPerView);
+                const activeDot = this.section.querySelector(`.indicator-dot[data-index="${activeIndex}"]`);
+                if (activeDot) {
+                    activeDot.classList.add('active');
+                }
+            }
+
+            createIndicators() {
+                const indicatorContainer = this.section.querySelector('.carousel-indicators');
+                const numIndicators = Math.ceil(this.totalItems / this.itemsPerView);
+                for (let i = 0; i < numIndicators; i++) {
+                    const button = document.createElement('button');
+                    button.className = `indicator-dot ${i === 0 ? 'active' : ''}`;
+                    button.dataset.index = i;
+                    button.type = 'button';
+                    indicatorContainer.appendChild(button);
+                }
+            }
+
+            expandGrid() {
+                this.section.querySelector('.carousel-wrapper').classList.add('hidden');
+                this.section.querySelector('.grid-wrapper').classList.add('active');
+            }
+
+            collapseGrid() {
+                this.section.querySelector('.carousel-wrapper').classList.remove('hidden');
+                this.section.querySelector('.grid-wrapper').classList.remove('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            new ProductCarousel('#carousel-test');
+        });
+    </script>
+</body>
+</html>

@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-    // Display all merchandise
+    // Display all merchandise grouped by category
     public function index() {
         $products = Product::all();
-        return view('shop.index', compact('products'));
+        $groupedProducts = $products->groupBy('category');
+        return view('shop.index', compact('groupedProducts'));
     }
 
     // Show details for items
@@ -19,5 +20,10 @@ class ShopController extends Controller
         return view('shop.show', compact('product'));
     }
 
-    //test push :3
+    // Add product to cart
+    public function addToCart($id) {
+        $product = Product::findOrFail($id);
+        // Cart logic will be implemented here
+        return redirect()->back()->with('success', 'Product added to cart!');
+    }
 }

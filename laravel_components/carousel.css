@@ -1,33 +1,8 @@
-@import 'tailwindcss';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
-
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-}
-
-html {
-    scrollbar-gutter: stable;
-}
-
 /* ===== PRODUCT CAROUSEL COMPONENT STYLES ===== */
 
 .product-carousel-section {
     padding: 60px 0;
     background-color: #fff;
-}
-
-.carousel-content-wrapper {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-    contain: layout style paint;
-    position: relative;
 }
 
 /* ===== CAROUSEL HEADER ===== */
@@ -69,7 +44,7 @@ html {
 .collapse-btn {
     background-color: #2a2a2a;
     color: #fff;
-    border: 1px solid #2a2a2a;
+    border: none;
     padding: 12px 24px;
     border-radius: 4px;
     font-size: 13px;
@@ -81,13 +56,11 @@ html {
     display: flex;
     align-items: center;
     gap: 8px;
-    white-space: nowrap;
 }
 
 .expand-btn:hover,
 .collapse-btn:hover {
     background-color: #000;
-    border-color: #000;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -102,34 +75,6 @@ html {
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #eee;
-    width: 100%;
-    box-sizing: border-box;
-    height: 100%;
-    overflow: hidden;
-}
-
-/* ===== CAROUSEL WRAPPER ===== */
-.carousel-wrapper {
-    width: 100%;
-    transition: all 0.3s ease;
-    height: 450px;
-    position: relative;
-    overflow: hidden;
-}
-
-.carousel-wrapper.hidden {
-    display: none;
-    height: 0;
-    min-height: 0;
-    overflow: hidden;
-}
-
-.expanded-hidden {
-    display: block;
-}
-
-.expanded-hidden.hidden {
-    display: none;
 }
 
 /* ===== CAROUSEL TRACK ===== */
@@ -137,15 +82,12 @@ html {
     flex: 1;
     overflow: hidden;
     border-radius: 4px;
-    width: 100%;
-    height: 100%;
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     gap: 20px;
-    will-change: transform;
 }
 
 .carousel-item {
@@ -341,6 +283,7 @@ html {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    z-index: 20;
 }
 
 .carousel-nav-btn:hover {
@@ -373,58 +316,59 @@ html {
     border-radius: 50%;
     background-color: #ddd;
     border: none;
-    padding: 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    flex-shrink: 0;
-}
-
-.indicator-dot:focus {
-    outline: none;
 }
 
 .indicator-dot.active {
     background-color: #2a2a2a;
     width: 30px;
     border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(42, 42, 42, 0.3);
 }
 
 .indicator-dot:hover {
-    background-color: #999;
-}
-
-.indicator-dot.active:hover {
-    background-color: #000;
+    background-color: #bbb;
 }
 
 /* ===== GRID VIEW ===== */
 .grid-wrapper {
     transition: all 0.3s ease;
-    position: relative;
-    display: block;
 }
 
 .grid-wrapper.hidden {
     display: none;
-    height: 0;
-    min-height: 0;
-    overflow: hidden;
 }
 
+/* GRID HEADER */
 .grid-header {
-    margin-bottom: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    margin-bottom: 30px;
     gap: 12px;
 }
 
-.grid-header h3 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #2a2a2a;
-    margin: 0;
+.grid-header .minimize-btn {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.grid-header .minimize-btn:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .products-grid {
@@ -432,7 +376,6 @@ html {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
     margin-top: 0;
-    width: 100%;
 }
 
 /* GRID PRODUCT CARD */
@@ -606,10 +549,6 @@ html {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 20px;
     }
-
-    .carousel-content-wrapper {
-        padding: 0 15px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -664,10 +603,6 @@ html {
         padding: 10px 16px;
         font-size: 12px;
     }
-
-    .carousel-content-wrapper {
-        padding: 0 10px;
-    }
 }
 
 @media (max-width: 576px) {
@@ -717,10 +652,6 @@ html {
     .product-rating {
         width: 100%;
         justify-content: center;
-    }
-
-    .carousel-content-wrapper {
-        padding: 0 8px;
     }
 }
 

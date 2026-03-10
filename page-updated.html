@@ -1,0 +1,1700 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Artist Shack - Handcrafted Merchandise</title>
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="module" src="http://[::1]:5173/@vite/client"></script><link rel="stylesheet" href="http://[::1]:5173/resources/css/app.css" /><script type="module" src="http://[::1]:5173/resources/js/app.js"></script>    </head>
+    <body class="bg-white text-gray-900 flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg">
+            <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+                    </svg>
+                    <a href="/" class="text-2xl font-bold">The Artist Shack</a>
+                </div>
+                
+                <div class="flex items-center gap-6">
+                    <a href="/" class="hover:text-gray-200 transition">Shop</a>
+                    <a href="/admin/products" class="hover:text-gray-200 transition">Admin</a>
+                    <div class="relative">
+                        <button class="bg-white text-purple-600 px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Cart (0)
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container mx-auto px-4 py-12 flex-grow">
+            <div class="flex flex-col gap-12">
+            <section class="product-carousel-section" id="carousel-section-plushies">
+    <div class="carousel-content-wrapper">
+        <div class="carousel-header">
+            <div class="section-title">
+                <h2>Plushies</h2>
+                <span>Explore our amazing collection</span>
+            </div>
+            
+            <!-- EXPAND/COLLAPSE BUTTONS -->
+            <div class="carousel-controls">
+                <button type="button" class="expand-btn" data-carousel="#carousel-plushies" title="View all items">
+                    <i class="fa fa-th"></i> View All
+                </button>
+            </div>
+        </div>
+
+        <!-- ===== CAROUSEL VIEW (DEFAULT) ===== -->
+        <div class="carousel-wrapper expanded-hidden">
+            <div class="carousel-container">
+                <!-- LEFT NAVIGATION BUTTON -->
+                <button type="button" class="carousel-nav-btn carousel-prev" data-carousel="#carousel-plushies">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+
+                <!-- CAROUSEL TRACK -->
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track" id="carousel-plushies">
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Sakuya Plushie" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/1" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/1" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Plushies</span>
+                                                <h3 class="product-name">Sakuya Plushie</h3>
+                                                <p class="product-description">A soft fumo of Sakuya Izayoi from Touhou Project.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$25.00</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Reimu Plushie" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/2" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/2" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Plushies</span>
+                                                <h3 class="product-name">Reimu Plushie</h3>
+                                                <p class="product-description">Adorable plushie of Reimu Hakurei with her signatu...</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$25.00</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Marisa Plushie" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/3" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/3" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Plushies</span>
+                                                <h3 class="product-name">Marisa Plushie</h3>
+                                                <p class="product-description">Cute plushie of Marisa Kirisame with her witch hat...</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$25.00</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Patchouli Plushie" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/4" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/4" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Plushies</span>
+                                                <h3 class="product-name">Patchouli Plushie</h3>
+                                                <p class="product-description">Soft plushie of the librarian Patchouli Knowledge.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$28.00</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Flandre Plushie" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/5" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/5" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Plushies</span>
+                                                <h3 class="product-name">Flandre Plushie</h3>
+                                                <p class="product-description">Fluffly plushie of Flandre Scarlet the vampire.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$30.00</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Youmu Plushie" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/17" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/17" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Plushies</span>
+                                                <h3 class="product-name">Youmu Plushie</h3>
+                                                <p class="product-description">Soft plushie of Youmu Konpaku with her sword.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$27.00</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                            </div>
+                        </div>
+
+                        <!-- RIGHT NAVIGATION BUTTON -->
+                        <button type="button" class="carousel-nav-btn carousel-next" data-carousel="#carousel-plushies">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- CAROUSEL INDICATORS (DOTS) -->
+                    <div class="carousel-indicators" id="indicators-plushies"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== GRID VIEW (EXPANDED) ===== -->
+        <div class="grid-wrapper hidden">
+            <div class="grid-header">
+                <h3 style="flex: 1;">All Products</h3>
+            </div>
+
+            <div class="products-grid">
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Sakuya Plushie"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/1" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Plushies</span>
+                            <h3 class="grid-product-name">Sakuya Plushie</h3>
+                            <p class="grid-product-description">A soft fumo of Sakuya Izayoi from Touhou Project.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$25.00</span>
+                                <form action="http://127.0.0.1:8000/cart/add/1" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Reimu Plushie"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/2" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Plushies</span>
+                            <h3 class="grid-product-name">Reimu Plushie</h3>
+                            <p class="grid-product-description">Adorable plushie of Reimu Hakurei with her signature red bow...</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$25.00</span>
+                                <form action="http://127.0.0.1:8000/cart/add/2" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Marisa Plushie"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/3" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Plushies</span>
+                            <h3 class="grid-product-name">Marisa Plushie</h3>
+                            <p class="grid-product-description">Cute plushie of Marisa Kirisame with her witch hat.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$25.00</span>
+                                <form action="http://127.0.0.1:8000/cart/add/3" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Patchouli Plushie"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/4" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Plushies</span>
+                            <h3 class="grid-product-name">Patchouli Plushie</h3>
+                            <p class="grid-product-description">Soft plushie of the librarian Patchouli Knowledge.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$28.00</span>
+                                <form action="http://127.0.0.1:8000/cart/add/4" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Flandre Plushie"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/5" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Plushies</span>
+                            <h3 class="grid-product-name">Flandre Plushie</h3>
+                            <p class="grid-product-description">Fluffly plushie of Flandre Scarlet the vampire.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$30.00</span>
+                                <form action="http://127.0.0.1:8000/cart/add/5" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Youmu Plushie"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/17" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Plushies</span>
+                            <h3 class="grid-product-name">Youmu Plushie</h3>
+                            <p class="grid-product-description">Soft plushie of Youmu Konpaku with her sword.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$27.00</span>
+                                <form action="http://127.0.0.1:8000/cart/add/17" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+
+            <section class="product-carousel-section" id="carousel-section-stickers">
+    <div class="carousel-content-wrapper">
+        <div class="carousel-header">
+            <div class="section-title">
+                <h2>Stickers</h2>
+                <span>Explore our amazing collection</span>
+            </div>
+            
+            <!-- EXPAND/COLLAPSE BUTTONS -->
+            <div class="carousel-controls">
+                <button type="button" class="expand-btn" data-carousel="#carousel-stickers" title="View all items">
+                    <i class="fa fa-th"></i> View All
+                </button>
+            </div>
+        </div>
+
+        <!-- ===== CAROUSEL VIEW (DEFAULT) ===== -->
+        <div class="carousel-wrapper expanded-hidden">
+            <div class="carousel-container">
+                <!-- LEFT NAVIGATION BUTTON -->
+                <button type="button" class="carousel-nav-btn carousel-prev" data-carousel="#carousel-stickers">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+
+                <!-- CAROUSEL TRACK -->
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track" id="carousel-stickers">
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Genshin Impact Sticker Pack" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/6" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/6" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Stickers</span>
+                                                <h3 class="product-name">Genshin Impact Sticker Pack</h3>
+                                                <p class="product-description">Set of 20 high-quality glossy stickers featuring v...</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$8.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Anime Aesthetic Stickers" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/7" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/7" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Stickers</span>
+                                                <h3 class="product-name">Anime Aesthetic Stickers</h3>
+                                                <p class="product-description">15 Beautiful pastel-colored aesthetic stickers.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$7.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Retro Gaming Stickers" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/8" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/8" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Stickers</span>
+                                                <h3 class="product-name">Retro Gaming Stickers</h3>
+                                                <p class="product-description">25 Classic retro video game character stickers.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$9.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Meme Sticker Bundle" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/9" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/9" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Stickers</span>
+                                                <h3 class="product-name">Meme Sticker Bundle</h3>
+                                                <p class="product-description">30 Hilarious meme stickers for your laptop or wate...</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$10.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Nature Stickers" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/10" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/10" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Stickers</span>
+                                                <h3 class="product-name">Nature Stickers</h3>
+                                                <p class="product-description">20 Beautiful nature-themed eco-friendly stickers.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$8.49</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Kawaii Sticker Pack" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/18" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/18" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Stickers</span>
+                                                <h3 class="product-name">Kawaii Sticker Pack</h3>
+                                                <p class="product-description">25 Cute and colorful kawaii-style stickers.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$9.49</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                            </div>
+                        </div>
+
+                        <!-- RIGHT NAVIGATION BUTTON -->
+                        <button type="button" class="carousel-nav-btn carousel-next" data-carousel="#carousel-stickers">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- CAROUSEL INDICATORS (DOTS) -->
+                    <div class="carousel-indicators" id="indicators-stickers"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== GRID VIEW (EXPANDED) ===== -->
+        <div class="grid-wrapper hidden">
+            <div class="grid-header">
+                <h3 style="flex: 1;">All Products</h3>
+            </div>
+
+            <div class="products-grid">
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Genshin Impact Sticker Pack"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/6" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Stickers</span>
+                            <h3 class="grid-product-name">Genshin Impact Sticker Pack</h3>
+                            <p class="grid-product-description">Set of 20 high-quality glossy stickers featuring various cha...</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$8.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/6" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Anime Aesthetic Stickers"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/7" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Stickers</span>
+                            <h3 class="grid-product-name">Anime Aesthetic Stickers</h3>
+                            <p class="grid-product-description">15 Beautiful pastel-colored aesthetic stickers.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$7.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/7" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Retro Gaming Stickers"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/8" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Stickers</span>
+                            <h3 class="grid-product-name">Retro Gaming Stickers</h3>
+                            <p class="grid-product-description">25 Classic retro video game character stickers.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$9.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/8" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Meme Sticker Bundle"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/9" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Stickers</span>
+                            <h3 class="grid-product-name">Meme Sticker Bundle</h3>
+                            <p class="grid-product-description">30 Hilarious meme stickers for your laptop or water bottle.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$10.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/9" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Nature Stickers"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/10" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Stickers</span>
+                            <h3 class="grid-product-name">Nature Stickers</h3>
+                            <p class="grid-product-description">20 Beautiful nature-themed eco-friendly stickers.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$8.49</span>
+                                <form action="http://127.0.0.1:8000/cart/add/10" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Kawaii Sticker Pack"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/18" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Stickers</span>
+                            <h3 class="grid-product-name">Kawaii Sticker Pack</h3>
+                            <p class="grid-product-description">25 Cute and colorful kawaii-style stickers.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$9.49</span>
+                                <form action="http://127.0.0.1:8000/cart/add/18" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+
+            <section class="product-carousel-section" id="carousel-section-keychains">
+    <div class="carousel-content-wrapper">
+        <div class="carousel-header">
+            <div class="section-title">
+                <h2>Keychains</h2>
+                <span>Explore our amazing collection</span>
+            </div>
+            
+            <!-- EXPAND/COLLAPSE BUTTONS -->
+            <div class="carousel-controls">
+                <button type="button" class="expand-btn" data-carousel="#carousel-keychains" title="View all items">
+                    <i class="fa fa-th"></i> View All
+                </button>
+            </div>
+        </div>
+
+        <!-- ===== CAROUSEL VIEW (DEFAULT) ===== -->
+        <div class="carousel-wrapper expanded-hidden">
+            <div class="carousel-container">
+                <!-- LEFT NAVIGATION BUTTON -->
+                <button type="button" class="carousel-nav-btn carousel-prev" data-carousel="#carousel-keychains">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+
+                <!-- CAROUSEL TRACK -->
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track" id="carousel-keychains">
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Acrylic Keychain - Cat" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/11" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/11" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Keychains</span>
+                                                <h3 class="product-name">Acrylic Keychain - Cat</h3>
+                                                <p class="product-description">Cute cat-shaped acrylic keychain with UV printing.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$5.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Acrylic Keychain - Moon" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/12" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/12" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Keychains</span>
+                                                <h3 class="product-name">Acrylic Keychain - Moon</h3>
+                                                <p class="product-description">Crescent moon-shaped glittery acrylic keychain.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$6.49</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Metal Keychain - Music Note" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/13" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/13" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Keychains</span>
+                                                <h3 class="product-name">Metal Keychain - Music Note</h3>
+                                                <p class="product-description">Durable metal keychain shaped like a music note.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$7.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Enamel Pin Keychain Set" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/14" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/14" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Keychains</span>
+                                                <h3 class="product-name">Enamel Pin Keychain Set</h3>
+                                                <p class="product-description">Set of 3 colorful enamel pin keychains.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$12.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Resin Keychain - Galaxy" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/15" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/15" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Keychains</span>
+                                                <h3 class="product-name">Resin Keychain - Galaxy</h3>
+                                                <p class="product-description">Beautiful resin keychain with galaxy design.</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$8.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Leather Keychain - Minimalist" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/16" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/16" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Keychains</span>
+                                                <h3 class="product-name">Leather Keychain - Minimalist</h3>
+                                                <p class="product-description">Premium leather keychain with minimalist design an...</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$14.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="carousel-item">
+                                        <div class="product-card">
+                                            <!-- PRODUCT IMAGE -->
+                                            <div class="product-image-wrapper">
+                                                <img src="https://via.placeholder.com/300" 
+                                                     alt="Wooden Keychain - Forest" 
+                                                     class="product-image">
+                                                
+                                                <!-- HOVER ACTIONS -->
+                                                <div class="product-hover-overlay">
+                                                    <div class="action-buttons">
+                                                        <a href="http://127.0.0.1:8000/product/19" 
+                                                           class="action-btn view-btn" title="View Details">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <button class="action-btn wishlist-btn" title="Add to Wishlist">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </button>
+                                                        <form action="http://127.0.0.1:8000/cart/add/19" 
+                                                              method="POST" class="add-to-cart-form">
+                                                            <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                                            <button type="submit" class="action-btn cart-btn" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- PRODUCT INFO -->
+                                            <div class="product-info">
+                                                <span class="product-category">Keychains</span>
+                                                <h3 class="product-name">Wooden Keychain - Forest</h3>
+                                                <p class="product-description">Eco-friendly wooden keychain with forest engraving...</p>
+                                                
+                                                <div class="product-footer">
+                                                    <span class="product-price">$9.99</span>
+                                                    <div class="product-rating">
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                            </div>
+                        </div>
+
+                        <!-- RIGHT NAVIGATION BUTTON -->
+                        <button type="button" class="carousel-nav-btn carousel-next" data-carousel="#carousel-keychains">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- CAROUSEL INDICATORS (DOTS) -->
+                    <div class="carousel-indicators" id="indicators-keychains"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== GRID VIEW (EXPANDED) ===== -->
+        <div class="grid-wrapper hidden">
+            <div class="grid-header">
+                <h3 style="flex: 1;">All Products</h3>
+            </div>
+
+            <div class="products-grid">
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Acrylic Keychain - Cat"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/11" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Keychains</span>
+                            <h3 class="grid-product-name">Acrylic Keychain - Cat</h3>
+                            <p class="grid-product-description">Cute cat-shaped acrylic keychain with UV printing.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$5.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/11" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Acrylic Keychain - Moon"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/12" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Keychains</span>
+                            <h3 class="grid-product-name">Acrylic Keychain - Moon</h3>
+                            <p class="grid-product-description">Crescent moon-shaped glittery acrylic keychain.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$6.49</span>
+                                <form action="http://127.0.0.1:8000/cart/add/12" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Metal Keychain - Music Note"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/13" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Keychains</span>
+                            <h3 class="grid-product-name">Metal Keychain - Music Note</h3>
+                            <p class="grid-product-description">Durable metal keychain shaped like a music note.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$7.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/13" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Enamel Pin Keychain Set"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/14" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Keychains</span>
+                            <h3 class="grid-product-name">Enamel Pin Keychain Set</h3>
+                            <p class="grid-product-description">Set of 3 colorful enamel pin keychains.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$12.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/14" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Resin Keychain - Galaxy"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/15" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Keychains</span>
+                            <h3 class="grid-product-name">Resin Keychain - Galaxy</h3>
+                            <p class="grid-product-description">Beautiful resin keychain with galaxy design.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$8.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/15" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Leather Keychain - Minimalist"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/16" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Keychains</span>
+                            <h3 class="grid-product-name">Leather Keychain - Minimalist</h3>
+                            <p class="grid-product-description">Premium leather keychain with minimalist design and gold acc...</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$14.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/16" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="grid-product-card">
+                        <div class="grid-product-image-wrapper">
+                            <img src="https://via.placeholder.com/300" 
+                                 alt="Wooden Keychain - Forest"
+                                 class="grid-product-image">
+                            
+                            <div class="grid-product-overlay">
+                                <a href="http://127.0.0.1:8000/product/19" class="grid-view-btn">
+                                    <i class="fa fa-eye"></i> View
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid-product-info">
+                            <span class="grid-product-category">Keychains</span>
+                            <h3 class="grid-product-name">Wooden Keychain - Forest</h3>
+                            <p class="grid-product-description">Eco-friendly wooden keychain with forest engraving.</p>
+
+                            <div class="grid-product-footer">
+                                <span class="grid-product-price">$9.99</span>
+                                <form action="http://127.0.0.1:8000/cart/add/19" method="POST">
+                                    <input type="hidden" name="_token" value="4zao1uZEk8BkqfGL2VXUfZ38CkQ2nNULMRdUaQZz" autocomplete="off">                                    <button type="submit" class="grid-add-to-cart-btn">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+
+    </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-300 mt-20">
+            <div class="container mx-auto px-4 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                    <!-- About -->
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-4">The Artist Shack</h3>
+                        <p class="text-sm leading-relaxed">
+                            Your one-stop shop for handcrafted merchandise, unique collectibles, and artist-designed products.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="text-white font-bold text-lg mb-4">Quick Links</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="/" class="hover:text-white transition">Home</a></li>
+                            <li><a href="#" class="hover:text-white transition">Shop</a></li>
+                            <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                            <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div>
+                        <h4 class="text-white font-bold text-lg mb-4">Categories</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="hover:text-white transition">Plushies</a></li>
+                            <li><a href="#" class="hover:text-white transition">Stickers</a></li>
+                            <li><a href="#" class="hover:text-white transition">Keychains</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h4 class="text-white font-bold text-lg mb-4">Contact Us</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>Email: <a href="mailto:info@artistshack.com" class="hover:text-white transition">info@artistshack.com</a></li>
+                            <li>Phone: <a href="tel:+1234567890" class="hover:text-white transition">+1 (234) 567-890</a></li>
+                            <li class="flex gap-3 mt-4">
+                                <a href="#" class="hover:text-white transition">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                </a>
+                                <a href="#" class="hover:text-white transition">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bottom Footer -->
+                <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400">
+                        &copy; 2026 The Artist Shack. All rights reserved.
+                    </p>
+                    <div class="flex gap-6 mt-4 md:mt-0 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">Shipping Info</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Carousel Script -->
+        <script src="http://127.0.0.1:8000/js/carousel-standalone.js"></script>
+    </body>
+</html>
