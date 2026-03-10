@@ -1,47 +1,83 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="flex justify-between items-center mb-6">
-    <h1 class="text-2xl font-bold">Inventory Tracking</h1>
-    <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">Add New Product</a> 
-</div>
+@section('title', 'Products')
 
-<div class="bg-white shadow-md rounded-lg overflow-hidden">
-    <table class="w-full text-left border-collapse">
-        <thead class="bg-gray-50 border-b">
-            <tr>
-                <th class="p-4">Product Name</th> [cite: 21]
-                <th class="p-4">Category</th> [cite: 8]
-                <th class="p-4">Price</th> 
-                <th class="p-4">Current Stock</th> [cite: 21]
-                <th class="p-4">Actions</th> 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($products as $product)
-            <tr class="border-b hover:bg-gray-50">
-                <td class="p-4 font-medium">{{ $product->name }}</td>
-                <td class="p-4 text-gray-600">{{ $product->category }}</td>
-                <td class="p-4">${{ $product->price }}</td>
-                <td class="p-4">
-                    <form action="{{ route('products.update', $product->id) }}" method="POST" class="flex items-center">
-                        @csrf
-                        @method('PUT')
-                        <input type="number" name="stock_quantity" value="{{ $product->stock_quantity }}" 
-                               class="border w-16 p-1 rounded mr-2">
-                        <button type="submit" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Update</button>
-                    </form> [cite: 22, 25]
-                </td>
-                <td class="p-4">
-                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Delete this item?')">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="text-red-600 hover:underline">Delete</button>
-                    </form> [cite: 24]
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+@section('content')
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex justify-between items-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-800">Products</h1>
+        <a href="{{ route('admin.products.create') }}" class="btn-primary">
+            ➕ Add Product
+        </a>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead class="bg-purple-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Product</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Category</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Price</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Stock</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Status</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($products as $product)
+                        <tr class="border-b hover:bg-purple-50">
+                            <td class="px-6 py-3 font-semibold text-gray-800">{{ $product->name }}</td>
+                            <td class="px-6 py-3 text-gray-700">{{ $product->category->name }}</td>
+                            <td class="px-6 py-3 font-bold text-purple-600">${{ number_format($product->price, 2) }}</td>
+                            <td class="px-6 py-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold
+                                    @if($product->stock > 20) bg-green-100 text-green-700
+                                    @elseif($product->stock > 5) bg-yellow-100 text-yellow-700
+                                    @else bg-red-100 text-red-700 @endif
+                                ">
+                                    {{ $product->stock }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold
+                                    @if($product->is_active && !$product->deleted_at) bg-green-100 text-green-700
+                                    @elseif($product->deleted_at) bg-gray-100 text-gray-700
+                                    @else bg-red-100 text-red-700 @endif
+                                ">
+                                    @if($product->deleted_at)
+                                        Deleted
+                                    @elseif($product->is_active)
+                                        Active
+                                    @else
+                                        Inactive
+                                    @endif
+                                </span>
+                            </td>
+                            <td class="px-6 py-3 text-sm space-x-2">
+                                @if($product->deleted_at)
+                                    <form action="{{ route('admin.products.restore', $product->id) }}" method="POST" class="inline">
+                                        @csrf
+                                        <button type="submit" class="text-green-600 hover:text-green-700 font-semibold">Restore</button>
+                                    </form>
+                                @else
+                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="text-purple-600 hover:text-purple-700 font-semibold">Edit</a>
+                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:text-red-700 font-semibold" onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-8">
+        {{ $products->links() }}
+    </div>
 </div>
 @endsection
