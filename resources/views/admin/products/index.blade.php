@@ -3,47 +3,51 @@
 @section('title', 'Products')
 
 @section('content')
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="flex justify-between items-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-800">Products</h1>
-        <a href="{{ route('admin.products.create') }}" class="btn-primary">
-            ➕ Add Product
-        </a>
+<div class="container my-5">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h1 class="h2">Products</h1>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
+                <i class="fa fa-plus"></i> Add Product
+            </a>
+        </div>
     </div>
 
-    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <div class="overflow-x-auto">
-            <table class="w-full">
-                <thead class="bg-purple-50">
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
                     <tr>
-                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Product</th>
-                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Category</th>
-                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Price</th>
-                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Stock</th>
-                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Status</th>
-                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Actions</th>
+                        <th class="align-middle">Product</th>
+                        <th class="align-middle">Category</th>
+                        <th class="align-middle">Price</th>
+                        <th class="align-middle">Stock</th>
+                        <th class="align-middle">Status</th>
+                        <th class="align-middle">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($products as $product)
-                        <tr class="border-b hover:bg-purple-50">
-                            <td class="px-6 py-3 font-semibold text-gray-800">{{ $product->name }}</td>
-                            <td class="px-6 py-3 text-gray-700">{{ $product->category->name }}</td>
-                            <td class="px-6 py-3 font-bold text-purple-600">${{ number_format($product->price, 2) }}</td>
-                            <td class="px-6 py-3">
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold
-                                    @if($product->stock > 20) bg-green-100 text-green-700
-                                    @elseif($product->stock > 5) bg-yellow-100 text-yellow-700
-                                    @else bg-red-100 text-red-700 @endif
+                        <tr>
+                            <td class="align-middle"><strong>{{ $product->name }}</strong></td>
+                            <td class="align-middle">{{ $product->category->name }}</td>
+                            <td class="align-middle"><strong class="text-primary">${{ number_format($product->price, 2) }}</strong></td>
+                            <td class="align-middle">
+                                <span class="badge
+                                    @if($product->stock > 20) badge-success
+                                    @elseif($product->stock > 5) badge-warning text-dark
+                                    @else badge-danger @endif
                                 ">
                                     {{ $product->stock }}
                                 </span>
                             </td>
-                            <td class="px-6 py-3">
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold
-                                    @if($product->is_active && !$product->deleted_at) bg-green-100 text-green-700
-                                    @elseif($product->deleted_at) bg-gray-100 text-gray-700
-                                    @else bg-red-100 text-red-700 @endif
+                            <td class="align-middle">
+                                <span class="badge
+                                    @if($product->is_active && !$product->deleted_at) badge-success
+                                    @elseif($product->deleted_at) badge-secondary
+                                    @else badge-danger @endif
                                 ">
                                     @if($product->deleted_at)
                                         Deleted
@@ -54,18 +58,24 @@
                                     @endif
                                 </span>
                             </td>
-                            <td class="px-6 py-3 text-sm space-x-2">
+                            <td class="align-middle">
                                 @if($product->deleted_at)
-                                    <form action="{{ route('admin.products.restore', $product->id) }}" method="POST" class="inline">
+                                    <form action="{{ route('admin.products.restore', $product->id) }}" method="POST" class="d-inline">
                                         @csrf
-                                        <button type="submit" class="text-green-600 hover:text-green-700 font-semibold">Restore</button>
+                                        <button type="submit" class="btn btn-sm btn-success" title="Restore product">
+                                            <i class="fa fa-undo"></i> Restore
+                                        </button>
                                     </form>
                                 @else
-                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="text-purple-600 hover:text-purple-700 font-semibold">Edit</a>
-                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" class="inline">
+                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-primary" title="Edit product">
+                                        <i class="fa fa-edit"></i> Edit
+                                    </a>
+                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-700 font-semibold" onclick="return confirm('Are you sure?')">Delete</button>
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')" title="Delete product">
+                                            <i class="fa fa-trash"></i> Delete
+                                        </button>
                                     </form>
                                 @endif
                             </td>
@@ -76,7 +86,7 @@
         </div>
     </div>
 
-    <div class="mt-8">
+    <div class="mt-4">
         {{ $products->links() }}
     </div>
 </div>

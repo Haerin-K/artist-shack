@@ -1,0 +1,117 @@
+/* ===== HEADER STYLES ===== */
+
+.header-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-section .navbar {
+    padding: 1rem 0;
+    background: transparent;
+}
+
+.header-section .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.header-section .navbar-brand:hover {
+    color: #f0f0f0 !important;
+}
+
+.header-section .navbar-brand i {
+    font-size: 1.75rem;
+}
+
+.header-section .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.header-section .nav-link:hover {
+    color: #fff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.header-section .nav-link i {
+    font-size: 1rem;
+}
+
+.header-section .dropdown-menu {
+    background: #fff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-section .dropdown-item {
+    color: #333;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-section .dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #667eea;
+    padding-left: 1.5rem;
+}
+
+.header-section .dropdown-item i {
+    width: 16px;
+    text-align: center;
+}
+
+.header-section .badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    top: -8px !important;
+    right: -12px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .header-section .navbar-collapse {
+        background: rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 4px;
+        backdrop-filter: blur(10px);
+    }
+
+    .header-section .nav-link {
+        padding: 0.5rem 0 !important;
+        margin: 0.25rem 0 !important;
+    }
+
+    .header-section .dropdown-menu {
+        background: rgba(255, 255, 255, 0.95);
+        margin-left: 1rem;
+    }
+}

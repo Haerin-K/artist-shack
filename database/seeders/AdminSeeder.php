@@ -12,7 +12,7 @@ class AdminSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin User',
-            'email' => 'admin@merchhub.com',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('password123'),
             'role' => 'admin',
         ]);

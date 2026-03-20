@@ -35,23 +35,30 @@
                                         <div class="product-card">
                                             <!-- PRODUCT IMAGE -->
                                             <div class="product-image-wrapper">
-                                                <img src="{{ $product->image ?? 'https://via.placeholder.com/300' }}" 
+                                                @php
+                                                    $imageSrc = $product->images && count($product->images) > 0 
+                                                        ? asset('storage/' . $product->images[0]) 
+                                                        : 'https://via.placeholder.com/300';
+                                                @endphp
+                                                <img src="{{ $imageSrc }}" 
                                                      alt="{{ $product->name ?? 'Product' }}" 
                                                      class="product-image">
                                                 
                                                 <!-- HOVER ACTIONS -->
                                                 <div class="product-hover-overlay">
                                                     <div class="action-buttons">
-                                                        <a href="{{ route('shop.show', $product->id ?? 1) }}" 
+                                                        <a href="{{ route('product.show', $product->slug ?? '#') }}" 
                                                            class="action-btn view-btn" title="View Details">
                                                             <i class="fa fa-eye"></i>
                                                         </a>
                                                         <button class="action-btn wishlist-btn" title="Add to Wishlist">
                                                             <i class="fa fa-heart-o"></i>
                                                         </button>
-                                                        <form action="{{ route('cart.add', $product->id ?? 1) }}" 
+                                                        <form action="{{ route('cart.add') }}" 
                                                               method="POST" class="add-to-cart-form">
                                                             @csrf
+                                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                            <input type="hidden" name="quantity" value="1">
                                                             <button type="submit" class="action-btn cart-btn" title="Add to Cart">
                                                                 <i class="fa fa-shopping-cart"></i>
                                                             </button>
@@ -109,12 +116,17 @@
                 @forelse($products as $product)
                     <div class="grid-product-card">
                         <div class="grid-product-image-wrapper">
-                            <img src="{{ $product->image ?? 'https://via.placeholder.com/300' }}" 
+                            @php
+                                $gridImageSrc = $product->images && count($product->images) > 0 
+                                    ? asset('storage/' . $product->images[0]) 
+                                    : 'https://via.placeholder.com/300';
+                            @endphp
+                            <img src="{{ $gridImageSrc }}" 
                                  alt="{{ $product->name ?? 'Product' }}"
                                  class="grid-product-image">
                             
                             <div class="grid-product-overlay">
-                                <a href="{{ route('shop.show', $product->id ?? 1) }}" class="grid-view-btn">
+                                <a href="{{ route('product.show', $product->slug ?? '#') }}" class="grid-view-btn">
                                     <i class="fa fa-eye"></i> View
                                 </a>
                             </div>
@@ -127,8 +139,10 @@
 
                             <div class="grid-product-footer">
                                 <span class="grid-product-price">${{ $product->price ?? '0.00' }}</span>
-                                <form action="{{ route('cart.add', $product->id ?? 1) }}" method="POST">
+                                <form action="{{ route('cart.add') }}" method="POST">
                                     @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <input type="hidden" name="quantity" value="1">
                                     <button type="submit" class="grid-add-to-cart-btn">
                                         Add to Cart
                                     </button>

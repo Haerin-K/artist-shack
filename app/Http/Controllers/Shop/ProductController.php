@@ -15,7 +15,11 @@ class ProductController extends Controller
             ->with('category')
             ->paginate(12);
 
-        return view('shop.index', compact('products', 'categories'));
+        $groupedProducts = $products->groupBy(function ($product) {
+            return $product->category->name;
+        });
+    
+        return view('shop.index', compact('products', 'categories', 'groupedProducts'));
     }
 
     public function filterByCategory($slug)
@@ -26,7 +30,11 @@ class ProductController extends Controller
             ->where('is_active', true)
             ->paginate(12);
 
-        return view('shop.index', compact('products', 'categories', 'category'));
+        $groupedProducts = $products->groupBy(function ($product) {
+            return $product->category->name;
+        });
+
+        return view('shop.index', compact('products', 'categories', 'category', 'groupedProducts'));
     }
 
     public function show($slug)
