@@ -91,7 +91,9 @@
     gap: 20px;
 }
 
-.carousel-item {
+.product-carousel-section .product-carousel-item {
+    display: block;
+    position: relative;
     flex: 0 0 calc(25% - 15px);
     min-width: 0;
     animation: slideIn 0.5s ease-out;
@@ -304,14 +306,22 @@
 }
 
 /* ===== CAROUSEL INDICATORS ===== */
-.carousel-indicators {
+.product-carousel-indicators {
     display: flex;
     justify-content: center;
     gap: 8px;
     margin-top: 20px;
+    position: static;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    list-style: none;
 }
 
-.indicator-dot {
+.product-indicator-dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -321,13 +331,13 @@
     transition: all 0.3s ease;
 }
 
-.indicator-dot.active {
+.product-indicator-dot.active {
     background-color: #2a2a2a;
     width: 30px;
     border-radius: 5px;
 }
 
-.indicator-dot:hover {
+.product-indicator-dot:hover {
     background-color: #bbb;
 }
 
@@ -335,6 +345,10 @@
 .grid-wrapper {
     transition: all 0.3s ease;
     display: block;
+}
+
+.carousel-wrapper.hidden {
+    display: none;
 }
 
 .grid-wrapper.hidden {
@@ -526,7 +540,7 @@
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1200px) {
-    .carousel-item {
+    .product-carousel-section .product-carousel-item {
         flex: 0 0 calc(33.333% - 13px);
     }
 
@@ -537,7 +551,7 @@
 }
 
 @media (max-width: 768px) {
-    .carousel-item {
+    .product-carousel-section .product-carousel-item {
         flex: 0 0 calc(50% - 10px);
     }
 
@@ -591,7 +605,7 @@
 }
 
 @media (max-width: 576px) {
-    .carousel-item {
+    .product-carousel-section .product-carousel-item {
         flex: 0 0 100%;
     }
 

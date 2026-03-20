@@ -41,8 +41,14 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0.01',
             'stock' => 'required|integer|min:0',
             'sku' => 'required|string|unique:products',
+            'display_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $displayImagePath = null;
+        if ($request->hasFile('display_image')) {
+            $displayImagePath = $request->file('display_image')->store('products', 'public');
+        }
 
         $images = [];
         if ($request->hasFile('images')) {
@@ -55,6 +61,7 @@ class ProductController extends Controller
         Product::create([
             ...$validated,
             'slug' => Str::slug($validated['name']),
+            'display_image' => $displayImagePath,
             'images' => $images,
         ]);
 
@@ -78,8 +85,14 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0.01',
             'stock' => 'required|integer|min:0',
             'sku' => 'required|string|unique:products,sku,' . $product->id,
+            'display_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $displayImagePath = $product->display_image;
+        if ($request->hasFile('display_image')) {
+            $displayImagePath = $request->file('display_image')->store('products', 'public');
+        }
 
         $images = $product->images ?? [];
 
@@ -93,6 +106,7 @@ class ProductController extends Controller
         $product->update([
             ...$validated,
             'slug' => Str::slug($validated['name']),
+            'display_image' => $displayImagePath,
             'images' => $images,
         ]);
 

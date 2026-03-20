@@ -77,9 +77,33 @@
                             @enderror
                         </div>
 
-                        <!-- Current Images -->
+                        <!-- Current Display Image -->
                         <div class="form-group">
-                            <label class="form-label font-weight-bold">Current Images</label>
+                            <label class="form-label font-weight-bold">Current Display Image</label>
+                            @if($product->display_image)
+                                <div class="mb-3" style="max-width: 220px;">
+                                    <img src="{{ asset('storage/' . $product->display_image) }}" alt="Display image" class="img-thumbnail w-100" style="height: 220px; object-fit: cover;">
+                                </div>
+                            @else
+                                <p class="text-muted"><small>No display image set yet</small></p>
+                            @endif
+                        </div>
+
+                        <!-- Replace Display Image -->
+                        <div class="form-group">
+                            <label for="display_image" class="form-label font-weight-bold">Replace Display Image</label>
+                            <input type="file" id="display_image" name="display_image" accept="image/*" class="form-control @error('display_image') is-invalid @enderror">
+                            <small class="form-text text-muted d-block mt-2">
+                                <i class="fa fa-info-circle"></i> Main image used for product card display.
+                            </small>
+                            @error('display_image')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Current Gallery Images -->
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Current Additional Images (Gallery)</label>
                             @if($product->images && count($product->images) > 0)
                                 <div class="row">
                                     @foreach($product->images as $image)
@@ -93,12 +117,12 @@
                             @endif
                         </div>
 
-                        <!-- Add More Images -->
+                        <!-- Add More Gallery Images -->
                         <div class="form-group">
-                            <label for="images" class="form-label font-weight-bold">Add More Images</label>
+                            <label for="images" class="form-label font-weight-bold">Add More Images (Gallery View Only)</label>
                             <input type="file" id="images" name="images[]" multiple accept="image/*" class="form-control @error('images.*') is-invalid @enderror">
                             <small class="form-text text-muted d-block mt-2">
-                                <i class="fa fa-info-circle"></i> Upload additional images (JPEG, PNG, GIF max 2MB each)
+                                <i class="fa fa-info-circle"></i> Upload additional images for product detail gallery (JPEG, PNG, GIF max 2MB each).
                             </small>
                             @error('images.*')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>

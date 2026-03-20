@@ -17,6 +17,7 @@ class Product extends Model
         'price',
         'stock',
         'sku',
+        'display_image',
         'images',
         'is_active',
     ];

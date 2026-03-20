@@ -77,12 +77,24 @@
                             @enderror
                         </div>
 
-                        <!-- Images -->
+                        <!-- Display Image -->
                         <div class="form-group">
-                            <label for="images" class="form-label font-weight-bold">Product Images</label>
+                            <label for="display_image" class="form-label font-weight-bold">Display Image</label>
+                            <input type="file" id="display_image" name="display_image" accept="image/*" class="form-control @error('display_image') is-invalid @enderror">
+                            <small class="form-text text-muted d-block mt-2">
+                                <i class="fa fa-info-circle"></i> Main image used for product card display.
+                            </small>
+                            @error('display_image')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Additional Gallery Images -->
+                        <div class="form-group">
+                            <label for="images" class="form-label font-weight-bold">Additional Images (Gallery View Only)</label>
                             <input type="file" id="images" name="images[]" multiple accept="image/*" class="form-control @error('images.*') is-invalid @enderror">
                             <small class="form-text text-muted d-block mt-2">
-                                <i class="fa fa-info-circle"></i> Upload one or multiple images (JPEG, PNG, GIF max 2MB each)
+                                <i class="fa fa-info-circle"></i> Upload extra images for product detail gallery (JPEG, PNG, GIF max 2MB each).
                             </small>
                             @error('images.*')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -103,10 +115,5 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
-            </a>
-        </div>
-    </form>
 </div>
 @endsection

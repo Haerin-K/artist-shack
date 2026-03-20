@@ -13,7 +13,7 @@
             
             <!-- EXPAND/COLLAPSE BUTTONS -->
             <div class="carousel-controls">
-                <button type="button" class="expand-btn" data-carousel="#carousel-{{ $section_id }}" title="View all items" onclick="console.log('Button clicked directly!');">
+                <button type="button" class="expand-btn" data-carousel="#carousel-{{ $section_id }}" title="View all items">
                     <i class="fa fa-th"></i> View All
                 </button>
             </div>
@@ -31,18 +31,24 @@
                 <div class="carousel-track-wrapper">
                     <div class="carousel-track" id="carousel-{{ $section_id }}">
                                 @forelse($products as $product)
-                                    <div class="carousel-item">
+                                    <div class="product-carousel-item">
                                         <div class="product-card">
                                             <!-- PRODUCT IMAGE -->
                                             <div class="product-image-wrapper">
                                                 @php
-                                                    $imageSrc = $product->images && count($product->images) > 0 
-                                                        ? asset('storage/' . $product->images[0]) 
-                                                        : 'https://via.placeholder.com/300';
+                                                    $displayImage = $product->display_image ?? null;
+                                                    $productImages = is_array($product->images) ? $product->images : (array) $product->images;
+                                                    $firstImage = collect($productImages)->filter()->first();
+                                                    $imagePath = $displayImage ?: $firstImage;
+                                                    $imageSrc = $imagePath
+                                                        ? asset('storage/' . ltrim($imagePath, '/'))
+                                                        : 'https://via.placeholder.com/600x600?text=No+Image';
                                                 @endphp
                                                 <img src="{{ $imageSrc }}" 
                                                      alt="{{ $product->name ?? 'Product' }}" 
-                                                     class="product-image">
+                                                     class="product-image"
+                                                     loading="lazy"
+                                                     onerror="this.onerror=null;this.src='https://via.placeholder.com/600x600?text=No+Image';">
                                                 
                                                 <!-- HOVER ACTIONS -->
                                                 <div class="product-hover-overlay">
@@ -69,8 +75,8 @@
 
                                             <!-- PRODUCT INFO -->
                                             <div class="product-info">
-                                                <span class="product-category">{{ $product->category ?? 'Category' }}</span>
                                                 <h3 class="product-name">{{ $product->name ?? 'Product Name' }}</h3>
+                                                <span class="product-category">{{ $product->category->name ?? 'Uncategorized' }}</span>
                                                 <p class="product-description">{{ Str::limit($product->description ?? '', 50) }}</p>
                                                 
                                                 <div class="product-footer">
@@ -85,7 +91,7 @@
                                         </div>
                                     </div>
                                 @empty
-                                    <div class="carousel-item">
+                                    <div class="product-carousel-item">
                                         <div class="empty-state">
                                             <p>No products available</p>
                                         </div>
@@ -101,7 +107,7 @@
                     </div>
 
                     <!-- CAROUSEL INDICATORS (DOTS) -->
-                    <div class="carousel-indicators" id="indicators-{{ $section_id }}"></div>
+                    <div class="product-carousel-indicators" id="indicators-{{ $section_id }}"></div>
                 </div>
             </div>
         </div>
@@ -117,13 +123,19 @@
                     <div class="grid-product-card">
                         <div class="grid-product-image-wrapper">
                             @php
-                                $gridImageSrc = $product->images && count($product->images) > 0 
-                                    ? asset('storage/' . $product->images[0]) 
-                                    : 'https://via.placeholder.com/300';
+                                $gridDisplayImage = $product->display_image ?? null;
+                                $gridProductImages = is_array($product->images) ? $product->images : (array) $product->images;
+                                $gridFirstImage = collect($gridProductImages)->filter()->first();
+                                $gridImagePath = $gridDisplayImage ?: $gridFirstImage;
+                                $gridImageSrc = $gridImagePath
+                                    ? asset('storage/' . ltrim($gridImagePath, '/'))
+                                    : 'https://via.placeholder.com/600x600?text=No+Image';
                             @endphp
                             <img src="{{ $gridImageSrc }}" 
                                  alt="{{ $product->name ?? 'Product' }}"
-                                 class="grid-product-image">
+                                 class="grid-product-image"
+                                 loading="lazy"
+                                 onerror="this.onerror=null;this.src='https://via.placeholder.com/600x600?text=No+Image';">
                             
                             <div class="grid-product-overlay">
                                 <a href="{{ route('product.show', $product->slug ?? '#') }}" class="grid-view-btn">
@@ -133,8 +145,8 @@
                         </div>
 
                         <div class="grid-product-info">
-                            <span class="grid-product-category">{{ $product->category ?? 'Category' }}</span>
                             <h3 class="grid-product-name">{{ $product->name ?? 'Product Name' }}</h3>
+                            <span class="grid-product-category">{{ $product->category->name ?? 'Uncategorized' }}</span>
                             <p class="grid-product-description">{{ Str::limit($product->description ?? '', 60) }}</p>
 
                             <div class="grid-product-footer">

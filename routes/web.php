@@ -22,7 +22,7 @@ Route::prefix('shop')->group(function () {
 });
 
 // Cart Routes (requires authentication)
-Route::prefix('cart')->middleware('auth')->group(function () {
+Route::prefix('cart')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('cart.index');
     Route::post('/add', [CartController::class, 'add'])->name('cart.add');
     Route::put('/update/{cartItem}', [CartController::class, 'update'])->name('cart.update');
@@ -30,19 +30,19 @@ Route::prefix('cart')->middleware('auth')->group(function () {
 });
 
 // Checkout Routes (requires authentication)
-Route::prefix('checkout')->middleware('auth')->group(function () {
+Route::prefix('checkout')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/', [CheckoutController::class, 'store'])->name('checkout.store');
 });
 
 // Customer Orders (requires authentication)
-Route::prefix('orders')->middleware('auth')->group(function () {
+Route::prefix('orders')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [ShopOrderController::class, 'index'])->name('orders.index');
     Route::get('/{orderNumber}', [ShopOrderController::class, 'show'])->name('order.show');
 });
 
 // Admin Routes (requires authentication and admin role)
-Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     // Products
